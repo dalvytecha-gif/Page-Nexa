@@ -1,0 +1,376 @@
+import React from "react";
+import { motion } from "framer-motion";
+
+export default function DashboardCollage() {
+  const users = [
+    { name: "Olivia Rhye", handle: "@olivia", avatar: "https://media.base44.com/images/public/6aa44d147c870af1a7c5aa08/f539599da_fe1e4282f_2f1190870d753151f58657595136f67c584b5c8c.png", bg: "bg-[#c7b9da]", role: "Product Designer", email: "olivia@untitledui.com" },
+    { name: "Phoenix Baker", handle: "@phoenix", avatar: "https://media.base44.com/images/public/6aa44d147c870af1a7c5aa08/a686372b1_78f59b7c3_2780e16db1a4a364d3d872737f7fe9563d7abb29.png", bg: "bg-[#aa9c75]", role: "Product Manager", email: "phoenix@untitledui.com" },
+    { name: "Lana Steiner", handle: "@lana", avatar: "https://media.base44.com/images/public/6aa44d147c870af1a7c5aa08/adfeea9c5_863cb9aa3_d688ab8bff2aebfc3cab587865468c4713ecad78.png", bg: "bg-[#d4b5ad]", role: "Frontend Developer", email: "lana@untitledui.com" },
+    { name: "Demi Wilkinson", handle: "@demi", avatar: "https://media.base44.com/images/public/6aa44d147c870af1a7c5aa08/e0a0d56fc_09025a732_c9b5ff46a30dabca6ca1e017e1047cd06f04270b.png", bg: "bg-[#bea887]", role: "Backend Developer", email: "demi@untitledui.com" },
+    { name: "Candice Wu", handle: "@candice", initials: "CW", role: "Fullstack Developer", email: "candice@untitledui.com" },
+    { name: "Natali Craig", handle: "@natali", avatar: "https://media.base44.com/images/public/6aa44d147c870af1a7c5aa08/2e4f946ad_5c4ee7744_ca269fff9961afb9c6a84bffddcb988a6fad7166.png", bg: "bg-[#d1baa9]", role: "UX Designer", email: "natali@untitledui.com" },
+    { name: "Drew Cano", handle: "@drew", avatar: "https://media.base44.com/images/public/6aa44d147c870af1a7c5aa08/785636b2c_27b6d3b98_2e2cf1b6f441c6f28c3b0e1e0eb4863eb80b7401.png", bg: "bg-[#d1dfc3]", role: "UX Copywriter", email: "drew@untitledui.com" },
+    { name: "Orlando Diggs", handle: "@orlando", initials: "OD", role: "UI Designer", email: "orlando@untitledui.com" },
+    { name: "Andi Lane", handle: "@andi", avatar: "https://media.base44.com/images/public/6aa44d147c870af1a7c5aa08/9c2ffc9d9_ea216bb44_e355a90b1eddfbc917a39138b5c2e12ac350dfe8.png", bg: "bg-[#d2c7ac]", role: "Product Manager", email: "andi@untitledui.com" },
+    { name: "Kate Morrison", handle: "@kate", avatar: "https://media.base44.com/images/public/6aa44d147c870af1a7c5aa08/c568aeab5_7f7b52f1d_6ec94186cc6e3e60f69ecac1443984f93e6078eb.png", bg: "bg-[#dbc0dd]", role: "QA Engineer", email: "kate@untitledui.com" },
+  ];
+
+  return (
+    <div className="relative w-full min-h-screen bg-background shadow-[inset_0_0_0_1px_rgba(0,0,0,0.10)] overflow-clip flex flex-col md:block gap-12 p-6 md:p-0 md:aspect-[2567/2063]">
+
+      {/* Title */}
+      <div className="relative md:absolute md:top-[5.8652%] md:left-[45.3837%] md:w-[13.5956%] md:h-[2.9083%] flex justify-center items-center z-[13]">
+        <motion.p
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-[clamp(26px,1.87vw,48px)] font-semibold font-heading leading-[1.25] tracking-[-0.0208em] text-center text-[#000000] w-full"
+        >
+          SERVEZ VOUS !
+        </motion.p>
+      </div>
+
+      {/* Dropdown Placeholder */}
+      <div className="relative md:absolute md:top-[14.2026%] md:left-[7.7132%] md:w-[9.3494%] z-[10]">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="flex flex-col justify-start items-start bg-background shadow-[0px_4px_6px_-2px_rgba(10,13,18,0.03),_0px_12px_16px_-4px_rgba(10,13,18,0.08),_inset_0_0_0_1px_#f5f5f5] rounded-[8px] w-full overflow-clip"
+        >
+          <div className="bg-secondary grow-0 w-full self-stretch h-px" />
+        </motion.div>
+      </div>
+
+      {/* Line Chart 1 */}
+      <div className="relative md:absolute md:top-[13.0877%] md:left-[19.2052%] md:w-[17.0237%] md:h-[12.2152%] z-[12] min-h-[252px] md:min-h-0">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full h-full"
+        >
+          <div className="flex flex-row justify-start items-start gap-1 w-full h-full">
+            <div className="flex flex-col justify-start items-end w-auto grow self-stretch" />
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Donut Chart Placeholder */}
+      <div className="relative md:absolute md:top-[11.6335%] md:left-[38.6053%] md:w-[14.2578%] md:h-[13.5724%] z-[8] min-h-[280px] md:min-h-0">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="flex flex-row justify-start items-start gap-4 w-full h-full"
+        />
+      </div>
+
+      {/* Large Table */}
+      <div className="relative md:absolute md:top-[9.1129%] md:left-[64.4721%] md:w-[35.5279%] z-[16] overflow-x-auto snap-x snap-mandatory pb-4 md:pb-0">
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="flex flex-col justify-start items-start w-max min-w-full bg-background shadow-[0px_1px_2px_0px_rgba(10,13,18,0.06),_0px_1px_3px_0px_rgba(10,13,18,0.10)] border-t-[1px] border-r-[1px] border-b-[1px] border-l-[1px] border-[#e9eaeb] rounded-[8px] overflow-clip"
+        >
+          <div className="flex flex-col justify-start items-start w-full bg-background grow-0 h-auto self-stretch">
+            <div className="flex flex-row justify-start items-start gap-3 pt-[20px] pr-[16px] pb-[19px] pl-[16px] grow-0 w-full h-auto self-stretch">
+              <div className="flex flex-row justify-start items-center gap-2 grow w-auto h-auto">
+                <p className="text-figma-18 font-medium font-heading leading-figma-28 text-figma-text-2 shrink-0 grow-0 w-auto h-auto">ETUDIANTS</p>
+                <div className="flex flex-row justify-start items-start shrink-0 grow-0 w-auto h-auto mix-blend-multiply" />
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-row justify-start items-start bg-background grow-0 w-full h-auto self-stretch">
+            {/* Column 1: Name */}
+            <div className="flex flex-col justify-start items-start shrink-0 grow-0 w-auto h-auto">
+              <div className="flex flex-row justify-start items-center gap-3 py-3 px-6 h-11 bg-figma-highlight border-b-[1px] border-[#e9eaeb] grow-0 w-full self-stretch">
+                <div className="flex flex-row justify-center items-center shrink-0 grow-0 w-auto h-auto" />
+                <div className="flex flex-row justify-start items-center gap-1 shrink-0 grow-0 w-auto h-auto">
+                  <p className="text-figma-12 font-medium font-heading leading-figma-18 text-[#535862] shrink-0 grow-0 w-auto h-auto">Name</p>
+                </div>
+              </div>
+              {users.map((user, i) => (
+                <div key={i} className="flex flex-row justify-start items-center gap-3 py-4 px-6 h-18 border-b-[1px] border-[#e9eaeb] grow-0 w-full self-stretch">
+                  <div className="flex flex-row justify-center items-center shrink-0 grow-0 w-auto h-auto" />
+                  {user.avatar ? (
+                    <img className={`flex flex-col justify-center items-center w-10 ${user.bg} rounded-[200px] shrink-0 grow-0 h-10`} style={{ objectFit: "cover", objectPosition: "center" }} src={user.avatar} alt="Avatar" />
+                  ) : (
+                    <div className="bg-border rounded-[200px] shrink-0 grow-0 w-10 h-10 relative">
+                      <p className="text-figma-16 font-medium font-heading leading-figma-24 text-center text-figma-color-14 w-10 h-6 absolute top-2 left-0 z-[1]">{user.initials}</p>
+                    </div>
+                  )}
+                  <div className="flex flex-col justify-start items-start shrink-0 grow-0 w-auto h-auto">
+                    <p className="text-figma-14 font-medium font-heading leading-figma-20 text-figma-text-2 shrink-0 grow-0 w-auto h-auto">{user.name}</p>
+                    <p className="text-figma-14 font-normal font-heading leading-figma-20 text-[#535862] shrink-0 grow-0 w-auto h-auto">{user.handle}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Column 2: Status */}
+            <div className="flex flex-col justify-start items-start w-[120px] shrink-0 grow-0 h-auto">
+              <div className="flex flex-row justify-start items-center gap-3 py-3 px-6 h-11 bg-figma-highlight border-b-[1px] border-[#e9eaeb] grow-0 w-full self-stretch">
+                <div className="flex flex-row justify-start items-center gap-1 shrink-0 grow-0 w-auto h-auto">
+                  <p className="text-figma-12 font-medium font-heading leading-figma-18 text-[#535862] shrink-0 grow-0 w-auto h-auto">Status</p>
+                  <div className="shrink-0 grow-0 w-4 h-4 overflow-clip relative">
+                    <img className="w-[11px] h-[11px] absolute top-[3px] left-[3px] z-[1]" src="https://media.base44.com/images/public/6aa44d147c870af1a7c5aa08/0551ae052_a0c18b16a_31_17335_1229_9053_1224_4551_1221_106890_1037_34077.svg" alt="Icon" />
+                  </div>
+                </div>
+              </div>
+              {users.map((_, i) => (
+                <div key={i} className="flex flex-row justify-start items-center py-4 px-6 h-18 border-b-[1px] border-[#e9eaeb] grow-0 w-full self-stretch">
+                  <div className="flex flex-row justify-start items-start shrink-0 grow-0 w-auto h-auto mix-blend-multiply" />
+                </div>
+              ))}
+            </div>
+
+            {/* Column 3: Role */}
+            <div className="flex flex-col justify-start items-start w-[176px] shrink-0 grow-0 h-auto">
+              <div className="flex flex-row justify-start items-center gap-3 py-3 px-6 h-11 bg-figma-highlight border-b-[1px] border-[#e9eaeb] grow-0 w-full self-stretch">
+                <div className="flex flex-row justify-start items-center gap-1 shrink-0 grow-0 w-auto h-auto">
+                  <p className="text-figma-12 font-medium font-heading leading-figma-18 text-[#535862] shrink-0 grow-0 w-auto h-auto">Role</p>
+                  <div className="shrink-0 grow-0 w-4 h-4 relative">
+                    <div className="w-4 h-4 overflow-clip absolute top-0 left-0 z-[1]">
+                      <img className="w-[13px] h-[13px] absolute top-px left-px z-[1]" src="https://media.base44.com/images/public/6aa44d147c870af1a7c5aa08/f1c5bfbbb_45b5f8a3e_31_17335_1229_9075_1224_4551_1221_106791_1054_67_1037_34260.svg" alt="Icon" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {users.map((user, i) => (
+                <div key={i} className="flex flex-row justify-start items-center py-4 px-6 h-18 border-b-[1px] border-[#e9eaeb] grow-0 w-full self-stretch">
+                  <p className="text-figma-14 font-normal font-heading leading-figma-20 text-[#535862] shrink-0 grow-0 w-auto h-auto">{user.role}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Column 4: Email */}
+            <div className="flex flex-col justify-start items-start w-full max-w-[224px] shrink-0 grow-0 h-auto">
+              <div className="flex flex-row justify-start items-center gap-3 py-3 px-6 h-11 bg-figma-highlight border-b-[1px] border-[#e9eaeb] grow-0 w-full self-stretch">
+                <div className="flex flex-row justify-start items-center gap-1 shrink-0 grow-0 w-auto h-auto">
+                  <p className="text-figma-12 font-medium font-heading leading-figma-18 text-[#535862] shrink-0 grow-0 w-auto h-auto">Email address</p>
+                </div>
+              </div>
+              {users.map((user, i) => (
+                <div key={i} className="flex flex-row justify-start items-center py-4 px-6 h-18 border-b-[1px] border-[#e9eaeb] grow-0 w-full self-stretch">
+                  <p className="text-figma-14 font-normal font-heading leading-figma-20 text-[#535862] shrink-0 grow-0 w-auto h-auto">{user.email}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Column 5: Teams */}
+            <div className="flex flex-col justify-start items-start w-full max-w-[288px] shrink-0 grow-0 h-auto">
+              <div className="flex flex-row justify-start items-center gap-3 py-3 px-6 h-11 bg-figma-highlight border-b-[1px] border-[#e9eaeb] grow-0 w-full self-stretch">
+                <div className="flex flex-row justify-start items-center gap-1 shrink-0 grow-0 w-auto h-auto">
+                  <p className="text-figma-12 font-medium font-heading leading-figma-18 text-[#535862] shrink-0 grow-0 w-auto h-auto">Teams</p>
+                </div>
+              </div>
+              {users.map((_, i) => (
+                <div key={i} className="flex flex-row justify-start items-center py-4 px-6 h-18 border-b-[1px] border-[#e9eaeb] grow-0 w-full self-stretch">
+                  <div className="flex flex-row justify-start items-start gap-1 shrink-0 grow-0 w-auto h-auto">
+                    <div className="flex flex-row justify-start items-start shrink-0 grow-0 w-auto h-auto mix-blend-multiply" />
+                    <div className="flex flex-row justify-start items-start shrink-0 grow-0 w-auto h-auto mix-blend-multiply" />
+                    <div className="flex flex-row justify-start items-start shrink-0 grow-0 w-auto h-auto mix-blend-multiply" />
+                    <div className="flex flex-row justify-start items-start shrink-0 grow-0 w-auto h-auto mix-blend-multiply" />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Column 6: Actions */}
+            <div className="flex flex-col justify-start items-start shrink-0 grow-0 w-auto h-auto">
+              <div className="flex flex-row justify-start items-center gap-3 py-3 px-6 h-11 bg-figma-highlight border-b-[1px] border-[#e9eaeb] grow-0 w-full self-stretch" />
+              {users.map((_, i) => (
+                <div key={i} className="flex flex-row justify-start items-center gap-1 p-4 h-18 border-b-[1px] border-[#e9eaeb] grow-0 w-full self-stretch">
+                  <div className="flex flex-row justify-start items-start rounded-[8px] shrink-0 grow-0 w-auto h-auto" />
+                  <div className="flex flex-row justify-start items-start rounded-[8px] shrink-0 grow-0 w-auto h-auto" />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-row justify-between items-center py-3 px-4 grow-0 w-full h-auto self-stretch border-t-[1px] border-[#e9eaeb]">
+            <div className="flex flex-row justify-start items-start rounded-[8px] shrink-0 grow-0 w-auto h-auto" />
+            <p className="text-figma-14 font-medium font-heading leading-figma-20 text-figma-text-3 shrink-0 grow-0 w-auto h-auto">Page 1 of 10</p>
+            <div className="flex flex-row justify-start items-start rounded-[8px] shrink-0 grow-0 w-auto h-auto" />
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Slider */}
+      <div className="relative md:absolute md:top-[25.2060%] md:left-[41.7608%] md:w-[12.4659%] z-[2] pt-12 md:pt-0">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="flex flex-col justify-start items-end gap-2 w-full"
+        >
+          <div className="rounded-[8px] grow-0 w-full self-stretch h-2 relative">
+            <div className="bg-secondary rounded-[4px] w-full h-2 absolute top-0 left-0 z-[1]" />
+            <div className="w-[70%] h-2 absolute top-0 left-0 z-[2]">
+              <div className="flex flex-col justify-start items-center shadow-[0px_4px_6px_-2px_rgba(10,13,18,0.03),_0px_12px_16px_-4px_rgba(10,13,18,0.08)] rounded-[8px] w-[49px] absolute top-[-42px] right-[-24px] z-[2]">
+                <div className="flex flex-col justify-start items-start py-2 px-3 w-full bg-background rounded-[8px] grow-0 h-auto self-stretch">
+                  <p className="text-figma-12 font-semibold font-heading leading-figma-18 text-center text-figma-text-3 shrink-0 grow-0 w-auto h-auto">70%</p>
+                </div>
+                <div className="shrink-0 grow-0 w-4 h-1.5 relative">
+                  <img className="w-3.5 h-2 absolute top-[-3px] left-[-4px] z-[1]" src="https://media.base44.com/images/public/6aa44d147c870af1a7c5aa08/eadf126c4_b4ed4d6ab_59_21934_1087_57495_1052_506.svg" alt="bottom-center" />
+                </div>
+              </div>
+              <div className="bg-figma-color-14 rounded-[4px] w-full h-2 absolute top-0 left-0 z-[1]" />
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Bar Chart */}
+      <div className="relative md:absolute md:top-[29.6655%] md:left-[22.6334%] md:w-[13.3619%] md:h-[11.6335%] z-[17] min-h-[240px] md:min-h-0">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="w-full h-full"
+        >
+          <div className="flex flex-row justify-start items-start gap-1 w-full h-full">
+            <div className="flex flex-col justify-start items-end w-auto grow self-stretch" />
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Icons Grid (Mobile) / Absolute (Desktop) */}
+      <div className="flex flex-wrap justify-center gap-8 md:contents">
+        {/* X Icon */}
+        <div className="relative md:absolute md:top-[31.2651%] md:left-[43.1242%] w-[156px] min-h-[156px] md:w-[6.0771%] md:h-[7.5618%] z-[7]">
+          <motion.div whileHover={{ scale: 1.05 }} className="w-full h-full overflow-clip relative">
+            <img className="w-[91.66%] h-[91.66%] absolute top-[8.33%] left-[8.33%] z-[1]" src="https://media.base44.com/images/public/6aa44d147c870af1a7c5aa08/5a0d7a446_8834f3d01_34_51648_1037_34004.svg" alt="Icon" />
+          </motion.div>
+        </div>
+
+        {/* Minus Icon */}
+        <div className="relative md:absolute md:top-[32.1376%] md:left-[52.0841%] w-[177px] min-h-[177px] md:w-[6.8952%] md:h-[8.5797%] z-[5]">
+          <motion.div whileHover={{ scale: 1.05 }} className="w-full h-full overflow-clip relative">
+            <img className="w-[83.61%] h-[83.61%] absolute top-[12.42%] left-[12.42%] z-[1]" src="https://media.base44.com/images/public/6aa44d147c870af1a7c5aa08/3c72b078a_93539ecd8_34_51658_1037_34052.svg" alt="Icon" />
+          </motion.div>
+        </div>
+
+        {/* Plus Icon */}
+        <div className="relative md:absolute md:top-[40.7174%] md:left-[43.9423%] w-[156px] min-h-[156px] md:w-[6.0771%] md:h-[7.5618%] z-[6]">
+          <motion.div whileHover={{ scale: 1.05 }} className="w-full h-full overflow-clip relative">
+            <img className="w-[83.33%] h-[83.33%] absolute top-[12.82%] left-[12.82%] z-[1]" src="https://media.base44.com/images/public/6aa44d147c870af1a7c5aa08/64acf8fd9_d85df629a_34_51653_1037_34079.svg" alt="Icon" />
+          </motion.div>
+        </div>
+
+        {/* Document Icon */}
+        <div className="relative md:absolute md:top-[43.1895%] md:left-[53.9540%] w-full max-w-[210px] min-h-[210px] md:w-[8.1807%] md:h-[10.1793%] z-[3]">
+          <motion.div whileHover={{ scale: 1.05 }} className="w-full h-full overflow-clip relative">
+            <img className="w-[75.23%] h-[91.42%] absolute top-[8.57%] left-[16.66%] z-[1]" src="https://media.base44.com/images/public/6aa44d147c870af1a7c5aa08/e66d8b488_97d93b4b5_34_51870_1037_34018.svg" alt="Icon" />
+          </motion.div>
+        </div>
+
+        {/* Save Icon */}
+        <div className="relative md:absolute md:top-[48.2792%] md:left-[40.9816%] w-[154px] min-h-[154px] md:w-[5.9992%] md:h-[7.4648%] z-[4]">
+          <motion.div whileHover={{ scale: 1.05 }} className="w-full h-full overflow-clip relative">
+            <img className="w-[83.11%] h-[83.11%] absolute top-[12.33%] left-[12.33%] z-[1]" src="https://media.base44.com/images/public/6aa44d147c870af1a7c5aa08/11c2f627a_442d5a301_34_51666_1037_34034.svg" alt="Icon" />
+          </motion.div>
+        </div>
+
+        {/* Small Icon */}
+        <div className="relative md:absolute md:top-[45.7091%] md:left-[45.7343%] w-[24px] min-h-[24px] md:w-[0.9349%] md:h-[1.1633%] z-[11]">
+          <motion.div whileHover={{ scale: 1.05 }} className="w-full h-full overflow-clip relative">
+            <img className="w-[91.66%] h-[83.33%] absolute top-[12.5%] left-[8.33%] z-[1]" src="https://media.base44.com/images/public/6aa44d147c870af1a7c5aa08/5b215e1f1_084ca9a7c_36_4315_1027_6009.svg" alt="Icon" />
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Line Chart 2 */}
+      <div className="relative md:absolute md:top-[44.4983%] md:left-[13.0502%] md:w-[22.9450%] md:h-[9.7915%] z-[9] min-h-[202px] md:min-h-0">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="w-full h-full"
+        >
+          <div className="flex flex-row justify-start items-start gap-1 w-full h-full">
+            <div className="flex flex-col justify-start items-end w-auto grow self-stretch" />
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Toggles */}
+      <div className="flex flex-col gap-4 md:contents">
+        <div className="relative md:absolute md:top-[54.6776%] md:left-[52.0841%] md:w-[6.5056%] z-[14]">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="flex flex-row justify-start items-start gap-3 w-full"
+          >
+            <p className="text-figma-16 font-medium font-heading leading-figma-24 text-figma-text-3 shrink-0 grow-0 w-auto h-auto">Remember me</p>
+          </motion.div>
+        </div>
+        <div className="relative md:absolute md:top-[57.3436%] md:left-[52.1620%] md:w-[6.5056%] z-[15]">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="flex flex-row justify-start items-start gap-3 w-full"
+          >
+            <p className="text-figma-16 font-medium font-heading leading-figma-24 text-figma-text-3 shrink-0 grow-0 w-auto h-auto">Remember me</p>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Metric Cards */}
+      <div className="relative md:absolute md:top-[77.0237%] md:left-[37.4366%] md:w-[49.8636%] z-[18]">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="flex flex-col md:flex-row justify-start items-stretch gap-6 w-full"
+        >
+          {/* Card 1 */}
+          <div className="flex flex-col justify-start items-start gap-6 p-6 w-full md:w-1/3 bg-background shadow-[0px_1px_2px_0px_rgba(10,13,18,0.05),_inset_0_0_0_1px_#e9eaeb] rounded-[8px]">
+            <div className="flex flex-row justify-between items-start gap-2 w-full">
+              <p className="text-figma-16 font-semibold font-heading leading-figma-24 text-figma-text-2">Total étudiants </p>
+              <div className="shrink-0 w-5 h-5 overflow-clip relative">
+                <img className="w-[3px] h-[15px] absolute top-[3px] left-[9px] z-[1]" src="https://media.base44.com/images/public/6aa44d147c870af1a7c5aa08/dc88686e1_89cf36793_31_40221_1050_145492_1037_33970.svg" alt="Icon" />
+              </div>
+            </div>
+            <div className="flex flex-col justify-start items-start gap-4 w-full mt-auto">
+              <p className="text-[clamp(20px,1.4vw,36px)] font-semibold font-heading leading-[1.2222] tracking-[-0.0194em] text-figma-text-2">2024-2025</p>
+              <p className="text-figma-14 font-medium font-heading leading-figma-20 text-[#535862]">vs année précédente</p>
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div className="flex flex-col justify-start items-start gap-6 p-6 w-full md:w-1/3 bg-background shadow-[0px_1px_2px_0px_rgba(10,13,18,0.05),_inset_0_0_0_1px_#e9eaeb] rounded-[8px]">
+            <div className="flex flex-row justify-between items-start gap-2 w-full">
+              <p className="text-figma-16 font-semibold font-heading leading-figma-24 text-figma-text-2">Etudiants à risque de désengagement</p>
+              <div className="shrink-0 w-5 h-5 overflow-clip relative">
+                <img className="w-[3px] h-[15px] absolute top-[3px] left-[9px] z-[1]" src="https://media.base44.com/images/public/6aa44d147c870af1a7c5aa08/f086c7f4f_ee5eb97d7_31_40237_1050_145492_1037_33970.svg" alt="Icon" />
+              </div>
+            </div>
+            <div className="flex flex-col justify-start items-start gap-4 w-full mt-auto">
+              <p className="text-[clamp(20px,1.4vw,36px)] font-semibold font-heading leading-[1.2222] tracking-[-0.0194em] text-figma-text-2">12</p>
+              <p className="text-figma-14 font-medium font-heading leading-figma-20 text-[#535862]">vs mois prédédent</p>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="flex flex-col justify-start items-start gap-6 p-6 w-full md:w-1/3 bg-background shadow-[0px_1px_2px_0px_rgba(10,13,18,0.05),_inset_0_0_0_1px_#e9eaeb] rounded-[8px]">
+            <div className="flex flex-row justify-between items-start gap-2 w-full">
+              <p className="text-figma-16 font-semibold font-heading leading-figma-24 text-figma-text-2">Etudiants actifs</p>
+              <div className="shrink-0 w-5 h-5 overflow-clip relative">
+                <img className="w-[3px] h-[15px] absolute top-[3px] left-[9px] z-[1]" src="https://media.base44.com/images/public/6aa44d147c870af1a7c5aa08/f3ec8c5d1_bc943b42b_31_40253_1050_145492_1037_33970.svg" alt="Icon" />
+              </div>
+            </div>
+            <div className="flex flex-col justify-start items-start gap-4 w-full mt-auto">
+              <p className="text-[clamp(20px,1.4vw,36px)] font-semibold font-heading leading-[1.2222] tracking-[-0.0194em] text-figma-text-2">250</p>
+              <p className="text-figma-14 font-medium font-heading leading-figma-20 text-[#535862]">vs mois précédents</p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+    </div>
+  );
+}
