@@ -1,0 +1,109 @@
+import React, { useEffect, useState, useCallback } from 'react';
+import { base44 } from '@/api/base44Client';
+import { useOrg } from '@/hooks/useOrg';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import { Button } from '@/components/ui/button';
+import { Plus } from 'lucide-react';
+import LeadsBoard from '@/components/crm/LeadsBoard';
+import LeadForm from '@/components/crm/LeadForm';
+import CustomerTable from '@/components/crm/CustomerTable';
+import CustomerForm from '@/components/crm/CustomerForm';
+
+export default function CRM() {
+  const { organizationId } = useOrg();
+  const [leads, setLeads] = useState([]);
+  const [customers, setCustomers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [leadFormOpen, setLeadFormOpen] = useState(false);
+  const [editingLead, setEditingLead] = useState(null);
+  const [customerFormOpen, setCustomerFormOpen] = useState(false);
+  const [editingCustomer, setEditingCustomer] = useState(null);
+
+  const load = useCallback(async () => {
+    if (!organizationId) return;
+    const q = { organization_id: organizationId };
+    const [l, c] = await Promise.all([
+      base44.entities.Lead.filter(q, '-created_date', 200),
+      base44.entities.Customer.filter(q, '-created_date', 200),
+    ]);
+    setLeads(l);
+    setCustomers(c);
+    setLoading(false);
+  }, [organizationId]);
+
+  useEffect(() => { load(); }, [load]);
+
+  const handleStageChange = async (lead, stage) => {
+    setLeads((prev) => prev.map((l) => (l.id === lead.id ? { ...l, stage } : l)));
+    await base44.entities.Lead.update(lead.id, { stage });
+  };
+
+  const handleLeadSubmit = async (form) => {
+    if (editingLead) {
+      await base44.entities.Lead.update(editingLead.id, form);
+    } else {
+      await base44.entities.Lead.create({ ...form, organization_id: organizationId, stage: 'new' });
+    }
+    setLeadFormOpen(false);
+    setEditingLead(null);
+    load();
+  };
+
+  const handleCustomerSubmit = async (form) => {
+    if (editingCustomer) {
+      await base44.entities.Customer.update(editingCustomer.id, form);
+    } else {
+      await base44.entities.Customer.create({ ...form, organization_id: organizationId });
+    }
+    setCustomerFormOpen(false);
+    setEditingCustomer(null);
+    load();
+  };
+
+  if (loading) {
+    return <div className="p-6 flex justify-center"><div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin" /></div>;
+  }
+
+  return (
+    <div className="p-6 space-y-6">
+      <div>
+        <h1 className="text-2xl font-heading font-semibold">CRM</h1>
+        <p className="text-sm text-muted-foreground">Manage your prospect pipeline and customer base.</p>
+      </div>
+
+      <Tabs defaultValue="pipeline">
+        <div className="flex items-center justify-between">
+          <TabsList>
+            <TabsTrigger value="pipeline">Pipeline</TabsTrigger>
+            <TabsTrigger value="customers">Customers</TabsTrigger>
+          </TabsList>
+        </div>
+
+        <TabsContent value="pipeline" className="mt-4">
+          <div className="flex justify-end mb-3">
+            <Button size="sm" onClick={() => { setEditingLead(null); setLeadFormOpen(true); }}>
+              <Plus className="w-4 h-4 mr-1" /> New lead
+            </Button>
+          </div>
+          {leads.length === 0 ? (
+            <p className="text-sm text-muted-foreground py-10 text-center">No leads yet. Create your first prospect.</p>
+          ) : (
+            <LeadsBoard leads={leads} onStageChange={handleStageChange} onEdit={(l) => { setEditingLead(l); setLeadFormOpen(true); }} />
+          )}
+        </TabsContent>
+
+        <TabsContent value="customers" className="mt-4">
+          <div className="flex justify-end mb-3">
+            <Button size="sm" onClick={() => { setEditingCustomer(null); setCustomerFormOpen(true); }}>
+              <Plus className="w-4 h-4 mr-1" /> New customer
+            </Button>
+          </div>
+          <CustomerTable customers={customers} onEdit={(c) => { setEditingCustomer(c); setCustomerFormOpen(true); }} />
+        </TabsContent>
+      </Tabs>
+
+      <LeadForm open={leadFormOpen} onOpenChange={setLeadFormOpen} initial={editingLead} onSubmit={handleLeadSubmit} />
+      <CustomerForm open={customerFormOpen} onOpenChange={setCustomerFormOpen} initial={editingCustomer} onSubmit={handleCustomerSubmit} />
+    </div>
+  );
+}
